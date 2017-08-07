@@ -17,7 +17,9 @@ namespace BMSApplication.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            ViewBag.Users = db.Users.ToList();
+            //var products = db.Products.Where(p => p.Status != false);
+            return View(db.Products.Where(p => p.Status != true).ToList());
         }
 
         // GET: Products/Details/5
@@ -86,6 +88,8 @@ namespace BMSApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.ModifyDate = DateTime.Now;
+                product.ModifyBy = 1;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -114,7 +118,9 @@ namespace BMSApplication.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
-            db.Products.Remove(product);
+            product.Status = true;
+            //db.Products.Remove(product);
+            db.Entry(product).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -54,3 +54,4 @@ C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApp
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Release\BMSApplication.csproj.GenerateResource.Cache
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Release\BMSApplication.dll
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Release\BMSApplication.pdb
+C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Release\BMSApplication.csprojResolveAssemblyReference.cache
