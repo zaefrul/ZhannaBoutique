@@ -30,10 +30,12 @@ namespace BMSApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
-            if (product == null)
+            if (product == null || product.Status == true)
             {
                 return HttpNotFound();
             }
+            ViewBag.CreatedName = db.Users.FirstOrDefault(u => u.Id == product.CreatedBy).Name;
+            ViewBag.ModifiedName = db.Users.FirstOrDefault(u => u.Id == product.ModifyBy).Name;
             return View(product);
         }
 
@@ -72,7 +74,7 @@ namespace BMSApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
-            if (product == null)
+            if (product == null || product.Status == true)
             {
                 return HttpNotFound();
             }
@@ -105,10 +107,12 @@ namespace BMSApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
-            if (product == null)
+            if (product == null || product.Status == true)
             {
                 return HttpNotFound();
             }
+            ViewBag.CreatedName = db.Users.FirstOrDefault(u => u.Id == product.CreatedBy).Name;
+            ViewBag.ModifiedName = db.Users.FirstOrDefault(u => u.Id == product.ModifyBy).Name;
             return View(product);
         }
 
