@@ -4,59 +4,62 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<div class="span12">
+    <div class="widget">
 
+        <div class="widget-header">
+            <i class="icon-inbox"></i>
+            <h3>New Variety Information</h3>
+        </div> <!-- /widget-header -->
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Variety</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ProductId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="widget-content">
+            @using (Html.BeginForm("Create", "Varieties", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownList("ProductId", null, htmlAttributes: new { @class = "span6" })
+                            @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SizeId, "SizeId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SizeId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SizeId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.SizeId, "SizeId", htmlAttributes: new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownList("SizeId", null, htmlAttributes: new { @class = "span6" })
+                            @Html.ValidationMessageFor(model => model.SizeId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ColorId, "ColorId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ColorId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ColorId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.ColorId, "ColorId", htmlAttributes: new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.DropDownList("ColorId", null, htmlAttributes: new { @class = "span6" })
+                            @Html.ValidationMessageFor(model => model.ColorId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "span6" } })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" value="Create" class="btn btn-success" style="width:100px" />
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default", @style = "width:100px" })
+                        </div>
+                    </div>
+                </fieldset>
+            }
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
