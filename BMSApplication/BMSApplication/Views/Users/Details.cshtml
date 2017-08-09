@@ -4,63 +4,45 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="span12">
+    <div class="widget">
+        <div class="widget-header">
+            <i class="icon-inbox"></i>
+            <h3>User Information</h3>
+        </div> <!-- /widget-header -->
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Contact)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contact)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-    </dl>
+        <div class="widget-content">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Name)</td>
+                        <td>@Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Address)</td>
+                        <td>@Html.DisplayFor(model => model.Address)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Contact)</td>
+                        <td>@Html.DisplayFor(model => model.Contact)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Email)</td>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Username)</td>
+                        <td>@Html.DisplayFor(model => model.Username)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Password)</td>
+                        <td>@Html.DisplayFor(model => model.Password)</td>
+                    </tr>
+                </tbody>
+            </table>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" }) 
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

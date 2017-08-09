@@ -4,63 +4,45 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Size</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Label)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Label)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifyDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifyDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifyBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifyBy)
-        </dd>
-
-    </dl>
+<div class="span12">
+    <div class="widget">
+        <div class="widget-header">
+            <i class="icon-inbox"></i>
+            <h3>Size Information</h3>
+        </div> <!-- /widget-header -->
+        <div class="widget-content">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Label)</td>
+                        <td>@Html.DisplayFor(model => model.Label)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Status)</td>
+                        <td>@Html.DisplayFor(model => model.Status)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.CreatedDate)</td>
+                        <td>@Html.DisplayFor(model => model.CreatedDate)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.CreatedBy)</td>
+                        <td>@Html.DisplayFor(model => model.CreatedBy)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.ModifyDate)</td>
+                        <td>@Html.DisplayFor(model => model.ModifyDate)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.ModifyBy)</td>
+                        <td>@Html.DisplayFor(model => model.ModifyBy)</td>
+                    </tr>
+                </tbody>
+            </table>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+

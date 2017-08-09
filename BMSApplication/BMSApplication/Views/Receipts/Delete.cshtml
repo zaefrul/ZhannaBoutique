@@ -4,69 +4,53 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="span12">
+    <div class="widget">
+        <div class="widget-header">
+            <i class="icon-inbox"></i>
+            <h3>Delete Receipts</h3>
+        </div> <!-- /widget-header -->
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Receipt</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+        <div class="widget-content">
+            <h3>Are you sure you want to delete this?</h3>
+            &nbsp;
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Date)</td>
+                        <td>@Html.DisplayFor(model => model.Date)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Total)</td>
+                        <td>@Html.DisplayFor(model => model.Total)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Method)</td>
+                        <td>@Html.DisplayFor(model => model.Method)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Tendered)</td>
+                        <td>@Html.DisplayFor(model => model.Tendered)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Change)</td>
+                        <td>@Html.DisplayFor(model => model.Change)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.CreditCardInvoice)</td>
+                        <td>@Html.DisplayFor(model => model.CreditCardInvoice)</td>
+                    </tr>
+                </tbody>
+            </table>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Method)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Method)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tendered)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tendered)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Change)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Change)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreditCardInvoice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreditCardInvoice)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" style="width:120px"  />
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default", @style = "width:120px" })
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>
