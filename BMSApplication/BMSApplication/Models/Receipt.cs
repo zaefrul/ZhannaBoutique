@@ -15,5 +15,7 @@ namespace BMSApplication.Models
         public double Tendered { get; set; }
         public double Change { get; set; }
         public string CreditCardInvoice { get; set; }
+        public int MemberId { get; set; }
+        public virtual Member Member { get; set; }
     }
 }

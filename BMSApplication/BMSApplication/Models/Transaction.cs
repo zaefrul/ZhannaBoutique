@@ -17,6 +17,8 @@ namespace BMSApplication.Models
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public double Sell { get; set; }
+        public int ChannelId { get; set; }
+        public virtual Channel Channel { get; set; }
         public int Quantity { get; set; }
     }
 }
