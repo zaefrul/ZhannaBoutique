@@ -17,7 +17,8 @@ namespace BMSApplication.Controllers
         // GET: Receipts
         public ActionResult Index()
         {
-            return View(db.Receipts.ToList());
+            var receipts = db.Receipts.Include(r => r.Member);
+            return View(receipts.ToList());
         }
 
         // GET: Receipts/Details/5
@@ -38,6 +39,7 @@ namespace BMSApplication.Controllers
         // GET: Receipts/Create
         public ActionResult Create()
         {
+            ViewBag.MemberId = new SelectList(db.Members, "Id", "Name");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace BMSApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Date,Total,Method,Tendered,Change,CreditCardInvoice")] Receipt receipt)
+        public ActionResult Create([Bind(Include = "Id,Date,Total,Method,Tendered,Change,CreditCardInvoice,MemberId")] Receipt receipt)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace BMSApplication.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.MemberId = new SelectList(db.Members, "Id", "Name", receipt.MemberId);
             return View(receipt);
         }
 
@@ -70,6 +73,7 @@ namespace BMSApplication.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MemberId = new SelectList(db.Members, "Id", "Name", receipt.MemberId);
             return View(receipt);
         }
 
@@ -78,7 +82,7 @@ namespace BMSApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Date,Total,Method,Tendered,Change,CreditCardInvoice")] Receipt receipt)
+        public ActionResult Edit([Bind(Include = "Id,Date,Total,Method,Tendered,Change,CreditCardInvoice,MemberId")] Receipt receipt)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace BMSApplication.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.MemberId = new SelectList(db.Members, "Id", "Name", receipt.MemberId);
             return View(receipt);
         }
 

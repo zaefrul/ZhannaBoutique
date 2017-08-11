@@ -4,46 +4,71 @@
     ViewBag.Title = "Details";
 }
 
-<div class="span12">
-    <div class="widget">
+<h2>Details</h2>
 
-        <div class="widget-header">
-            <i class="icon-inbox"></i>
-            <h3>Transaction Information</h3>
-        </div> <!-- /widget-header -->
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Channel.Label)
+        </dt>
 
-        <div class="widget-content">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Receipt.Method)</td>
-                        <td>@Html.DisplayFor(model => model.Receipt.Method)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.User.Name)</td>
-                        <td>@Html.DisplayFor(model => model.User.Name)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Variety.Id)</td>
-                        <td>@Html.DisplayFor(model => model.Variety.Id)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Date)</td>
-                        <td>@Html.DisplayFor(model => model.Date)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Sell)</td>
-                        <td>@Html.DisplayFor(model => model.Sell)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Quantity)</td>
-                        <td>@Html.DisplayFor(model => model.Quantity)</td>
-                    </tr>
-                </tbody>
-            </table>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" })
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
-        </div>
-    </div>
+        <dd>
+            @Html.DisplayFor(model => model.Channel.Label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Receipt.Method)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Receipt.Method)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Variety.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Variety.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+    </dl>
 </div>
-
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

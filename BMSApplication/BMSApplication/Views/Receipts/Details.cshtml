@@ -4,44 +4,71 @@
     ViewBag.Title = "Details";
 }
 
-<div class="span12">
-    <div class="widget">
-        <div class="widget-header">
-            <i class="icon-inbox"></i>
-            <h3>Receipt Information</h3>
-        </div>
-        <div class="widget-content">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Date)</td>
-                        <td>@Html.DisplayFor(model => model.Date)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Total)</td>
-                        <td> @Html.DisplayFor(model => model.Total)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Method)</td>
-                        <td>@Html.DisplayFor(model => model.Method)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Tendered)</td>
-                        <td>@Html.DisplayFor(model => model.Tendered)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Change)</td>
-                        <td>@Html.DisplayFor(model => model.Change)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.CreditCardInvoice)</td>
-                        <td>@Html.DisplayFor(model => model.CreditCardInvoice)</td>
-                    </tr>
-                </tbody>
-            </table>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default" })
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
-        </div>
-    </div>
-   
+<h2>Details</h2>
+
+<div>
+    <h4>Receipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Method)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Method)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tendered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tendered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Change)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Change)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditCardInvoice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditCardInvoice)
+        </dd>
+
+    </dl>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
