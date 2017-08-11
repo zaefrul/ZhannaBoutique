@@ -32,5 +32,17 @@ namespace BMSApplication.Models
         public System.Data.Entity.DbSet<BMSApplication.Models.User> Users { get; set; }
 
         public System.Data.Entity.DbSet<BMSApplication.Models.Transaction> Transactions { get; set; }
+
+        public System.Data.Entity.DbSet<BMSApplication.Models.Channel> Channels { get; set; }
+
+        public System.Data.Entity.DbSet<BMSApplication.Models.Member> Members { get; set; }
+
+        public System.Data.Entity.DbSet<BMSApplication.Models.Supplier> Suppliers { get; set; }
+
+        public System.Data.Entity.DbSet<BMSApplication.Models.Invoice> Invoices { get; set; }
+
+        public System.Data.Entity.DbSet<BMSApplication.Models.Vendor> Vendors { get; set; }
+
+        public System.Data.Entity.DbSet<BMSApplication.Models.InvoiceItem> InvoiceItems { get; set; }
     }
 }

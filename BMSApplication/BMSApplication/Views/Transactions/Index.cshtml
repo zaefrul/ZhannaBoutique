@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Channel.Label)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Receipt.Method)
         </th>
         <th>
@@ -34,6 +37,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Channel.Label)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Receipt.Method)
         </td>
