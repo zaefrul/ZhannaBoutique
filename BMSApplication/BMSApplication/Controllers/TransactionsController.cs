@@ -17,7 +17,7 @@ namespace BMSApplication.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
-            var transactions = db.Transactions.Include(t => t.Receipt).Include(t => t.User).Include(t => t.Variety);
+            var transactions = db.Transactions.Include(t => t.Channel).Include(t => t.Receipt).Include(t => t.User).Include(t => t.Variety);
             return View(transactions.ToList());
         }
 
@@ -39,6 +39,7 @@ namespace BMSApplication.Controllers
         // GET: Transactions/Create
         public ActionResult Create()
         {
+            ViewBag.ChannelId = new SelectList(db.Channels, "Id", "Label");
             ViewBag.ReceiptId = new SelectList(db.Receipts, "Id", "Method");
             ViewBag.UserId = new SelectList(db.Users, "Id", "Name");
             ViewBag.VarietyId = new SelectList(db.Varieties, "Id", "Id");
@@ -50,7 +51,7 @@ namespace BMSApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Date,VarietyId,ReceiptId,UserId,Sell,Quantity")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "Id,Date,VarietyId,ReceiptId,UserId,Sell,ChannelId,Quantity")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +60,7 @@ namespace BMSApplication.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ChannelId = new SelectList(db.Channels, "Id", "Label", transaction.ChannelId);
             ViewBag.ReceiptId = new SelectList(db.Receipts, "Id", "Method", transaction.ReceiptId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "Name", transaction.UserId);
             ViewBag.VarietyId = new SelectList(db.Varieties, "Id", "Id", transaction.VarietyId);
@@ -77,6 +79,7 @@ namespace BMSApplication.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ChannelId = new SelectList(db.Channels, "Id", "Label", transaction.ChannelId);
             ViewBag.ReceiptId = new SelectList(db.Receipts, "Id", "Method", transaction.ReceiptId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "Name", transaction.UserId);
             ViewBag.VarietyId = new SelectList(db.Varieties, "Id", "Id", transaction.VarietyId);
@@ -88,7 +91,7 @@ namespace BMSApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Date,VarietyId,ReceiptId,UserId,Sell,Quantity")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "Id,Date,VarietyId,ReceiptId,UserId,Sell,ChannelId,Quantity")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -96,6 +99,7 @@ namespace BMSApplication.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ChannelId = new SelectList(db.Channels, "Id", "Label", transaction.ChannelId);
             ViewBag.ReceiptId = new SelectList(db.Receipts, "Id", "Method", transaction.ReceiptId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "Name", transaction.UserId);
             ViewBag.VarietyId = new SelectList(db.Varieties, "Id", "Id", transaction.VarietyId);

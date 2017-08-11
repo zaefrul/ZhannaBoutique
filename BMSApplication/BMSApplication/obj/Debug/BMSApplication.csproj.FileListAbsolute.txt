@@ -103,12 +103,8 @@ C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApp
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\bin\System.Web.Webpages.Razor.xml
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\bin\System.Web.Helpers.xml
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\bin\System.Web.Mvc.xml
-C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.csprojResolveAssemblyReference.cache
-C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.Migrations.InitialCreate.resources
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.Migrations.Initial.resources
-C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.Migrations.v3.resources
-C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.Migrations.v4.resources
-C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.Migrations.v5.resources
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.csproj.GenerateResource.Cache
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.dll
 C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.pdb
+C:\Users\nasruddz\Documents\Personal\Zhanna\ZhannaBoutique\BMSApplication\BMSApplication\obj\Debug\BMSApplication.Migrations.invoicesuppliervendor.resources
