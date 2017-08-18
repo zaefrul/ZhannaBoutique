@@ -17,7 +17,7 @@ namespace BMSApplication.Controllers
         // GET: Invoices
         public ActionResult Index()
         {
-            var invoices = db.Invoices.Include(i => i.Supplier).Include(i => i.Vendor);
+            var invoices = db.Invoices.Include(i => i.Items).Include(i => i.Supplier).Include(i => i.Vendor);
             return View(invoices.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace BMSApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Invoice invoice = db.Invoices.Find(id);
+            Invoice invoice = db.Invoices.Include(i => i.Items).Include(i => i.Supplier).Include(i => i.Vendor).FirstOrDefault(i => i.Id == id);
             if (invoice == null)
             {
                 return HttpNotFound();
@@ -41,6 +41,7 @@ namespace BMSApplication.Controllers
         {
             ViewBag.SupplierId = new SelectList(db.Suppliers, "Id", "Name");
             ViewBag.VendorId = new SelectList(db.Vendors, "Id", "Brand");
+            ViewBag.VarietyId = db.Varieties.Select(v => new SelectListItem { Value = v.Id.ToString(), Text = (v.Product.Name + " " + v.Size.Label + " " + v.Color.Label) }).ToList();
             return View();
         }
 
