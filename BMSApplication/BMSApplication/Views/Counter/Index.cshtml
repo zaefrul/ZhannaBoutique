@@ -1,0 +1,129 @@
+﻿@model IEnumerable<BMSApplication.Models.Variety>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <div class="widget widget-nopad">
+                        <div class="widget-header">
+                            <i class="icon-inbox"></i>
+                            <h3>Counter Page</h3>
+                        </div> <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Sell Price</th>
+                                    </tr>
+                                </thead>
+                                @{
+                                    int count = 0;
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    var classNama = "data" + count;
+                                    <tr>
+                                        <td>
+                                            <button id=@classNama class="actionBtn btn btn-default">@item.Product.Name - @item.Color.Label - @item.Size.Label</button>
+                                        </td>
+                                        <td>
+                                            @item.Quantity
+                                        </td>
+                                        <td>
+                                            @item.Product.Sell
+                                        </td>
+                                    </tr>
+                                    
+                                    <input id=@classNama-cost type="hidden" value=@item.Product.Sell />
+                                    <input id=@classNama-quantity type="hidden" value=@item.Quantity />
+                                    <input id=@classNama-id type="hidden" value="@item.Id" />
+                                    <input id=@classNama-sell type="hidden" value="@item.Product.Sell" />
+                                    
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bookmark"></i>
+                            <h3>Cart</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div id="myform">
+
+                                @using (Html.BeginForm("Edit", "Counter", FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <fieldset>
+                                            <table class='table table-striped'>
+                                                <thead><tr><th>Product Name</th><th>Quantity</th><th>Price</th><th>Sell</th><th></th></tr></thead>
+                                                <tbody id="test">
+
+                                                </tbody>
+                                            </table>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tendered</th>
+                                                        <th>Total</th>
+                                                        <th>Change</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="text" id="tendered" class="span1" name="tendered" value="0" /></td>
+                                                        <td><input type="text" id="totalCost" class="span1" name="totalCost" value="0" /></td>
+                                                        <td><input type="text" id="change" class="span1" name="change" /></td>
+                                                        <input id="previous-price" type="hidden" value="0" />
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        <table class="table">
+                                                <tr>
+                                                    <th>Members</th>
+                                                    <th>Channel</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>@Html.DropDownList("MemberId", null, new { @class = ""})</td>
+                                                    <td>@Html.DropDownList("ChannelId", null, new { @class = "" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Method</th>
+                                                    <th>Credit Card Invoice</th>
+                                                </tr>
+                                                 <tr>
+                                                     <td>@Html.DropDownList("PaymentMethod", null, new { @class = "" })</td>
+                                                     <!-- <td><input type="text" id="method" name="method" class="span" /></td> -->
+                                                     <td><input type="text" id="credit_invoice" name="credit_invoice" class="span" /></td>
+                                                 </tr>
+                                                <tr>
+                                                    <td colspan="3" style="text-align:right"><button id="btnSubmit" class="btn btn-warning">Checkout</button></td>
+                                                </tr>
+          
+                                        </table>
+                                            
+                                            </fieldset>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+        </div>
+</div>
+
+
+
+
