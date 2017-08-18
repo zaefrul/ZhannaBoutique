@@ -34,7 +34,7 @@
                 + "<input type=\"hidden\" name=\"id[]\" class=\"" + button_id + "-id\" value= \"" + Id + "\" />"
                 + `<td>${str}</td><td><input name="quantity[]" class="span1 ${button_id}" id="${button_id}-quant" type="text" value="1" /></td>`
                 + `<td><input type="text" name="sell[]" class="span1 ${button_id}-sell" id="${button_id}-sell-price" value="${Sell}" /></td>`
-                + `<td><input type="text" name="cost[]" class="span1 ${button_id}-price" value="${cost}" disabled/></td>`                
+                + `<td><input type="text" name="cost[]" class="span1 ${button_id}-price" value="${cost}" readonly/></td>`                
                 + `<td><button type="button" name="remove" id="${i}" class="${button_id} btn btn-small btn-danger btn_remove actionBtn">X</button></td>` +
                 +"</tr>"              
                 ).appendTo("#test");
