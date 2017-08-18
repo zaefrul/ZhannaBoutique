@@ -17,6 +17,7 @@ namespace BMSApplication.Controllers
         // GET: Colors
         public ActionResult Index()
         {
+            ViewBag.Users = db.Users.ToList();
             return View(db.Colors.ToList());
         }
 

@@ -17,6 +17,7 @@ namespace BMSApplication.Controllers
         // GET: Receipts
         public ActionResult Index()
         {
+
             var receipts = db.Receipts.Include(r => r.Member);
             return View(receipts.ToList());
         }

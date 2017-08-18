@@ -1,0 +1,80 @@
+﻿@model BMSApplication.Models.Receipt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <div class="widget widget-nopad">
+                        <div class="widget-header">
+                            <i class="icon-inbox"></i>
+                            <h3>Counter Page</h3>
+                        </div> <!-- /widget-header -->
+                        <div class="widget-content">
+                            
+                            <h1>Zhanna Boutique</h1>
+                            <p>Date : @Html.DisplayFor(model => model.Date)</p>
+
+                            <p> Method: @Html.DisplayFor(model => model.Method)</p>
+
+                            @{
+                                var listUser = (System.Data.Entity.Infrastructure.DbQuery<BMSApplication.Models.Transaction>)ViewBag.Transaction;
+                            }
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var tran in listUser)
+                                {
+                                    <tr>
+                                        <td>@tran.Variety.Product.Name - @tran.Variety.Color.Label - @tran.Variety.Size.Label</td>
+                                        <td>X @tran.Quantity</td>
+                                        <td>@tran.Sell</td>
+                                        <td>@((tran.Sell * tran.Quantity))</td>
+                                    </tr>
+
+                                }
+                                <tr>
+                                    <td><strong>Total : </strong></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>@Html.DisplayFor(model => model.Total)</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Tendered : </strong>  @Html.DisplayFor(model => model.Tendered)
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <strong>Change :</strong> @Html.DisplayFor(model => model.Change)
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <center>
+                                <p>
+                                    @Html.ActionLink("Print", "", null, new { @class = "btn btn-default" }) | @Html.ActionLink("Next Customer", "Index", null, new { @class = "btn btn-success" })
+                                </p>
+                            </center>
+                        </div>
+                        </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+                       
