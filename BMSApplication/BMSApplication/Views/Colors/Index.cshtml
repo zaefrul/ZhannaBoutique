@@ -29,6 +29,9 @@
         </th>
         <th></th>
     </tr>
+    @{
+        var listUser = (List<BMSApplication.Models.User>)ViewBag.Users;
+    }
 
 @foreach (var item in Model) {
     <tr>
@@ -42,13 +45,13 @@
             @Html.DisplayFor(modelItem => item.CreatedDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
+            @Html.DisplayFor(modelItem => listUser.FirstOrDefault(u => u.Id == item.CreatedBy).Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ModifyDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ModifyBy)
+            @Html.DisplayFor(modelItem => listUser.FirstOrDefault(u=>u.Id == item.ModifyBy).Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-small btn-invert", @style = "width:70px" })
